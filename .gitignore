@@ -1,1 +1,26 @@
-node_modules/ 
+# Node
+node_modules/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Dataset
+dataset/
+
+# ML Models
+*.h5
+*.pth
+*.pt
+
+# Generated Images
+*.png
+reports/
+
+# Build Files
+dist/
+build/
+
+# Environment Files
+.env
