@@ -19,10 +19,10 @@ public class CorsConfig {
 
                 registry.addMapping("/**")
 
-                        .allowedOrigins(
-                                "http://localhost:5173",
-                                "https://your-frontend.vercel.app"
-                        )
+                .allowedOrigins(
+                	    "http://localhost:5173",
+                	    "https://YOUR-ACTUAL-VERCEL-URL.vercel.app"
+                	)
 
                         .allowedMethods("*")
 
