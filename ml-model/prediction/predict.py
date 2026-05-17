@@ -2,6 +2,8 @@ import os
 import cv2
 import numpy as np
 import tensorflow as tf
+import gdown
+
 
 from prediction.preprocess import preprocess_image
 from prediction.visualize_prediction import show_prediction
@@ -22,11 +24,33 @@ THRESHOLD = 0.05
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
+
+MODEL_PATH = os.path.join(
+    BASE_DIR,
+    "models",
+    "ms_unet_model.h5"
+)
+
+if not os.path.exists(MODEL_PATH):
+
+    os.makedirs(
+        os.path.dirname(MODEL_PATH),
+        exist_ok=True
+    )
+
+    url = "https://drive.google.com/uc?id=1l6fLfsIjDqUIfoKSU-eOBvrKmoy0Je9Q"
+
+    gdown.download(
+        url,
+        MODEL_PATH,
+        quiet=False
+    )
+
+
 # -----------------------------------
 # Model Path
 # -----------------------------------
 
-MODEL_PATH = os.path.join(BASE_DIR, "models", "ms_unet_model.h5")
 
 
 # -----------------------------------
