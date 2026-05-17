@@ -782,6 +782,3 @@ export default AuthSection;
 
 
 
-
-spring.data.mongodb.uri=mongodb+srv://Techie-Manish:23Ug032546@manish.jmv539t.mongodb.net/ms_detection?retryWrites=true&w=majority
-spring.data.mongodb.database=ms_detection
