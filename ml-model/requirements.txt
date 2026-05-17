@@ -11,3 +11,4 @@ reportlab
 python-multipart
 h5py
 requests
+gdown
