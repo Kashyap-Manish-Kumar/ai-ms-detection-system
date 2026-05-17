@@ -21,7 +21,7 @@ public class CorsConfig {
 
                 .allowedOrigins(
                 	    "http://localhost:5173",
-                	    "https://YOUR-ACTUAL-VERCEL-URL.vercel.app"
+                	    "https://ms-detection-frontend.vercel.app"
                 	)
 
                         .allowedMethods("*")
