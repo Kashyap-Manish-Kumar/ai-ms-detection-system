@@ -24,3 +24,5 @@ build/
 
 # Environment Files
 .env
+
+ms-detection-backend/uploads/

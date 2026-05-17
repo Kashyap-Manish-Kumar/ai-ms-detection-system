@@ -13,11 +13,34 @@ public class Analysis {
 
     private String patientId;
 
-    private int slicesAnalyzed;
+    // Prediction Result
+    private String prediction;
 
-    private int lesionSlices;
+    // Statistics
+    private Integer lesionPixels;
 
-    private int volumeMm3;
+    private Double lesionVolume;
+
+    // NEW FIELDS
+    private String diseaseSeverity;
+
+    private Integer totalLesionsDetected;
+
+    private Integer averageLesionSizePixels;
+
+    private Integer largestLesionAreaPixels;
+
+    private String primaryBrainRegion;
+
+    // Images
+    private String originalMriImage;
+
+    private String maskImage;
+
+    private String overlayImage;
+
+    // PDF
+    private String reportPdf;
 
     private String reportPath;
 
@@ -43,28 +66,102 @@ public class Analysis {
         this.patientId = patientId;
     }
 
-    public int getSlicesAnalyzed() {
-        return slicesAnalyzed;
+    public String getPrediction() {
+        return prediction;
     }
 
-    public void setSlicesAnalyzed(int slicesAnalyzed) {
-        this.slicesAnalyzed = slicesAnalyzed;
+    public void setPrediction(String prediction) {
+        this.prediction = prediction;
     }
 
-    public int getLesionSlices() {
-        return lesionSlices;
+    public Integer getLesionPixels() {
+        return lesionPixels;
     }
 
-    public void setLesionSlices(int lesionSlices) {
-        this.lesionSlices = lesionSlices;
+    public void setLesionPixels(Integer lesionPixels) {
+        this.lesionPixels = lesionPixels;
     }
 
-    public int getVolumeMm3() {
-        return volumeMm3;
+    public Double getLesionVolume() {
+        return lesionVolume;
     }
 
-    public void setVolumeMm3(int volumeMm3) {
-        this.volumeMm3 = volumeMm3;
+    public void setLesionVolume(Double lesionVolume) {
+        this.lesionVolume = lesionVolume;
+    }
+
+    // NEW GETTERS & SETTERS
+
+    public String getDiseaseSeverity() {
+        return diseaseSeverity;
+    }
+
+    public void setDiseaseSeverity(String diseaseSeverity) {
+        this.diseaseSeverity = diseaseSeverity;
+    }
+
+    public Integer getTotalLesionsDetected() {
+        return totalLesionsDetected;
+    }
+
+    public void setTotalLesionsDetected(Integer totalLesionsDetected) {
+        this.totalLesionsDetected = totalLesionsDetected;
+    }
+
+    public Integer getAverageLesionSizePixels() {
+        return averageLesionSizePixels;
+    }
+
+    public void setAverageLesionSizePixels(Integer averageLesionSizePixels) {
+        this.averageLesionSizePixels = averageLesionSizePixels;
+    }
+
+    public Integer getLargestLesionAreaPixels() {
+        return largestLesionAreaPixels;
+    }
+
+    public void setLargestLesionAreaPixels(Integer largestLesionAreaPixels) {
+        this.largestLesionAreaPixels = largestLesionAreaPixels;
+    }
+
+    public String getPrimaryBrainRegion() {
+        return primaryBrainRegion;
+    }
+
+    public void setPrimaryBrainRegion(String primaryBrainRegion) {
+        this.primaryBrainRegion = primaryBrainRegion;
+    }
+
+    public String getOriginalMriImage() {
+        return originalMriImage;
+    }
+
+    public void setOriginalMriImage(String originalMriImage) {
+        this.originalMriImage = originalMriImage;
+    }
+
+    public String getMaskImage() {
+        return maskImage;
+    }
+
+    public void setMaskImage(String maskImage) {
+        this.maskImage = maskImage;
+    }
+
+    public String getOverlayImage() {
+        return overlayImage;
+    }
+
+    public void setOverlayImage(String overlayImage) {
+        this.overlayImage = overlayImage;
+    }
+
+    public String getReportPdf() {
+        return reportPdf;
+    }
+
+    public void setReportPdf(String reportPdf) {
+        this.reportPdf = reportPdf;
     }
 
     public String getReportPath() {

@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+tensorflow
+numpy
+opencv-python
+matplotlib
+scipy
+nibabel
+pillow
+reportlab
+python-multipart
+h5py
+requests

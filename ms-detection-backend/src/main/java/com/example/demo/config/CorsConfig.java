@@ -1,5 +1,3 @@
-
-
 package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
@@ -11,14 +9,23 @@ public class CorsConfig {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {
+
         return new WebMvcConfigurer() {
 
             @Override
-            public void addCorsMappings(CorsRegistry registry) {
+            public void addCorsMappings(
+                    CorsRegistry registry
+            ) {
 
                 registry.addMapping("/**")
-                        .allowedOrigins("http://localhost:3000")
+
+                        .allowedOrigins(
+                                "http://localhost:5173",
+                                "https://your-frontend.vercel.app"
+                        )
+
                         .allowedMethods("*")
+
                         .allowedHeaders("*");
             }
         };

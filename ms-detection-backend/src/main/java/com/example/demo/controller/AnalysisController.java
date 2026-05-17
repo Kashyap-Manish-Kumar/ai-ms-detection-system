@@ -1,39 +1,54 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Analysis;
-import com.example.demo.service.AnalysisService;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import com.example.demo.service.AnalysisService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/analysis")
+@RequestMapping("/analysis")
+@RequiredArgsConstructor
 public class AnalysisController {
 
     private final AnalysisService analysisService;
 
-    public AnalysisController(AnalysisService analysisService) {
-        this.analysisService = analysisService;
+    @PostMapping("/upload")
+    public Analysis uploadMRI(
+            @RequestParam String patientId,
+            @RequestParam MultipartFile file
+    ) throws IOException {
+
+        return analysisService.analyzeMRI(patientId, file);
     }
-
-    // Run MRI analysis
-    @PostMapping("/run/{patientId}")
-    public String runAnalysis(@PathVariable String patientId) {
-
-        return analysisService.runAnalysis(patientId);
-    }
-
-    // Save analysis result
-    @PostMapping("/save")
-    public Analysis saveAnalysis(@RequestBody Analysis analysis) {
-
-        return analysisService.saveAnalysis(analysis);
-    }
-
-    // Get analysis history
+    
+    
     @GetMapping
-    public List<Analysis> getAllAnalyses() {
+    public List<Analysis> getAllAnalysis() {
 
-        return analysisService.getAllAnalyses();
+        return analysisService.getAllAnalysis();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteAnalysis(
+            @PathVariable String id
+    ) {
+
+        analysisService.deleteAnalysis(id);
+    }
+    
+    
+    @PostMapping("/send-report/{analysisId}")
+    public String sendReport(
+            @PathVariable String analysisId
+    ) {
+
+        analysisService.sendReport(analysisId);
+
+        return "Report Sent Successfully";
     }
 }
