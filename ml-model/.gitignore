@@ -72,3 +72,4 @@ uploads/
 venv/
 dataset/
 *.pyc
+*.h5
