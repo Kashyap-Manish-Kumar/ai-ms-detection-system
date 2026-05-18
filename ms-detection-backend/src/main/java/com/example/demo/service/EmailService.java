@@ -220,10 +220,10 @@ public class EmailService {
 
             		            </p>
 
-            		            <a href="#"
-            		               class="button">
-            		               MRI Report Attached
-            		            </a>
+            		                <a href="%s"
+									   class="button">
+									   Download MRI Report
+									</a>
 
             		        </div>
 
@@ -246,18 +246,10 @@ public class EmailService {
 
             		</html>
 
-            		""";
+            		""".formatted(reportPath);
 
             		helper.setText(htmlContent, true);
-            FileSystemResource file =
-                    new FileSystemResource(
-                            new File(reportPath)
-                    );
-
-            helper.addAttachment(
-                    "MRI_Report.pdf",
-                    file
-            );
+           
 
             mailSender.send(message);
 

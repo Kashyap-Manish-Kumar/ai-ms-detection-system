@@ -2,6 +2,7 @@ import os
 import numpy as np
 import cv2
 
+
 from prediction.predict import predict_mri
 from prediction.report_generator import generate_report
 

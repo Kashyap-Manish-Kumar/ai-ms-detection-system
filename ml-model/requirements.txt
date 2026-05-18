@@ -2,7 +2,7 @@ fastapi
 uvicorn
 tensorflow
 numpy
-opencv-python
+opencv-python-headless
 matplotlib
 scipy
 nibabel
@@ -12,8 +12,3 @@ python-multipart
 h5py
 requests
 gdown
-
-
-
-
-

@@ -40,14 +40,14 @@ public class AnalysisService {
                         analysis.getPatientId()
                 ).orElseThrow();
 
-        String fullReportPath =
-                "C:/Projects/ai-ms-detection-system/ml-model"
+        String reportUrl =
+                "https://manditake-om-turing-body-ml-api.hf.space"
                 + analysis.getReportPdf();
 
         emailService.sendReport(
                 patient.getEmail(),
                 patient.getId(),
-                fullReportPath
+                reportUrl
         );
     }
     
