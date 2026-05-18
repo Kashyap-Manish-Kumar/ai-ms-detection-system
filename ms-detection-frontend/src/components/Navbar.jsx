@@ -40,7 +40,7 @@ const analysis = JSON.parse(
   "service_urep6my",
   "template_k56x1lb",
   {
-    patient_email: "2403031469002@paruluniversity.ac.in",
+   to_email: "mk2151431@gmail.com",
 
     patient_name: analysis?.patientId || "Patient",
 

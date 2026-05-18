@@ -14,7 +14,7 @@ export const sendReportEmail = async (
       "service_urep6my",
       "template_k56x1lb",
       {
-        patient_email: patientEmail,
+        to_email: patientEmail,
 
         patient_name: patientName,
 
