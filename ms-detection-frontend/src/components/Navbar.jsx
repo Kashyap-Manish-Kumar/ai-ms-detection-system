@@ -63,7 +63,7 @@ const analysis = JSON.parse(
         patient_name: patient?.name || "Patient",
 
         report_link:
-          `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+  `https://manditake-om-turing-body-ml-api.hf.space${analysis?.reportPdf}`,
 
         prediction:
           analysis?.prediction || "N/A",
