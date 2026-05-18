@@ -43,7 +43,6 @@ public class EmailService {
             );
 
             String htmlContent = """
-
                     <!DOCTYPE html>
                     <html>
 
@@ -177,7 +176,7 @@ public class EmailService {
                                     </div>
 
                                     <div class="value">
-                                        """ + patientId + """
+                                        %s
                                     </div>
 
                                 </div>
@@ -225,12 +224,13 @@ public class EmailService {
                     </body>
 
                     </html>
-
-                    """.formatted(reportPath);
+                    """.formatted(patientId, reportPath);
 
             helper.setText(htmlContent, true);
 
             mailSender.send(message);
+
+            System.out.println("EMAIL SENT SUCCESSFULLY");
 
         } catch (Exception e) {
 
