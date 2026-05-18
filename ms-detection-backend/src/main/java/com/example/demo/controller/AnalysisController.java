@@ -42,13 +42,5 @@ public class AnalysisController {
     }
     
     
-    @PostMapping("/send-report/{analysisId}")
-    public String sendReport(
-            @PathVariable String analysisId
-    ) {
-
-        analysisService.sendReport(analysisId);
-
-        return "Report Sent Successfully";
-    }
+   
 }
