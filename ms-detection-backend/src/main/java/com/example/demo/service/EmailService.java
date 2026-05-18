@@ -1,24 +1,12 @@
 package com.example.demo.service;
 
-
-
-
-
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.beans.factory.annotation.Value;
-
-import org.springframework.core.io.FileSystemResource;
-
 import org.springframework.mail.javamail.JavaMailSender;
-
 import org.springframework.mail.javamail.MimeMessageHelper;
-
 import org.springframework.stereotype.Service;
 
 import jakarta.mail.internet.MimeMessage;
-
-import java.io.File;
 
 @Service
 @RequiredArgsConstructor
@@ -56,204 +44,197 @@ public class EmailService {
 
             String htmlContent = """
 
-            		<!DOCTYPE html>
-            		<html>
+                    <!DOCTYPE html>
+                    <html>
 
-            		<head>
+                    <head>
 
-            		    <style>
+                        <style>
 
-            		        body {
-            		            font-family: Arial, sans-serif;
-            		            background-color: #0f172a;
-            		            margin: 0;
-            		            padding: 0;
-            		            color: #ffffff;
-            		        }
+                            body {
+                                font-family: Arial, sans-serif;
+                                background-color: #0f172a;
+                                margin: 0;
+                                padding: 0;
+                                color: #ffffff;
+                            }
 
-            		        .container {
-            		            max-width: 700px;
-            		            margin: 40px auto;
-            		            background: #111827;
-            		            border-radius: 20px;
-            		            overflow: hidden;
-            		            border: 1px solid rgba(34,211,238,0.2);
-            		            box-shadow: 0 0 30px rgba(34,211,238,0.1);
-            		        }
+                            .container {
+                                max-width: 700px;
+                                margin: 40px auto;
+                                background: #111827;
+                                border-radius: 20px;
+                                overflow: hidden;
+                                border: 1px solid rgba(34,211,238,0.2);
+                                box-shadow: 0 0 30px rgba(34,211,238,0.1);
+                            }
 
-            		        .header {
-            		            background: linear-gradient(
-            		                135deg,
-            		                #06b6d4,
-            		                #2563eb
-            		            );
+                            .header {
+                                background: linear-gradient(
+                                    135deg,
+                                    #06b6d4,
+                                    #2563eb
+                                );
 
-            		            padding: 40px;
-            		            text-align: center;
-            		        }
+                                padding: 40px;
+                                text-align: center;
+                            }
 
-            		        .header h1 {
-            		            margin: 0;
-            		            font-size: 32px;
-            		            color: white;
-            		        }
+                            .header h1 {
+                                margin: 0;
+                                font-size: 32px;
+                                color: white;
+                            }
 
-            		        .content {
-            		            padding: 40px;
-            		        }
+                            .content {
+                                padding: 40px;
+                            }
 
-            		        .card {
-            		            background: #0b1120;
-            		            border: 1px solid rgba(34,211,238,0.15);
-            		            border-radius: 16px;
-            		            padding: 25px;
-            		            margin-top: 25px;
-            		        }
+                            .card {
+                                background: #0b1120;
+                                border: 1px solid rgba(34,211,238,0.15);
+                                border-radius: 16px;
+                                padding: 25px;
+                                margin-top: 25px;
+                            }
 
-            		        .label {
-            		            color: #67e8f9;
-            		            font-size: 14px;
-            		            margin-bottom: 8px;
-            		        }
+                            .label {
+                                color: #67e8f9;
+                                font-size: 14px;
+                                margin-bottom: 8px;
+                            }
 
-            		        .value {
-            		            font-size: 20px;
-            		            font-weight: bold;
-            		            color: white;
-            		        }
+                            .value {
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: white;
+                            }
 
-            		        .message {
-            		            color: #cbd5e1;
-            		            line-height: 1.8;
-            		            margin-top: 25px;
-            		        }
+                            .message {
+                                color: #cbd5e1;
+                                line-height: 1.8;
+                                margin-top: 25px;
+                            }
 
-            		        .footer {
-            		            padding: 30px;
-            		            text-align: center;
-            		            color: #94a3b8;
-            		            font-size: 14px;
-            		            border-top: 1px solid rgba(34,211,238,0.1);
-            		        }
+                            .footer {
+                                padding: 30px;
+                                text-align: center;
+                                color: #94a3b8;
+                                font-size: 14px;
+                                border-top: 1px solid rgba(34,211,238,0.1);
+                            }
 
-            		        .button {
-            		            display: inline-block;
-            		            margin-top: 30px;
-            		            background: #06b6d4;
-            		            color: #000000 !important;
-            		            text-decoration: none;
-            		            padding: 14px 28px;
-            		            border-radius: 12px;
-            		            font-weight: bold;
-            		        }
+                            .button {
+                                display: inline-block;
+                                margin-top: 30px;
+                                background: #06b6d4;
+                                color: #000000 !important;
+                                text-decoration: none;
+                                padding: 14px 28px;
+                                border-radius: 12px;
+                                font-weight: bold;
+                            }
 
-            		        .highlight {
-            		            color: #22d3ee;
-            		            font-weight: bold;
-            		        }
+                            .highlight {
+                                color: #22d3ee;
+                                font-weight: bold;
+                            }
 
-            		    </style>
+                        </style>
 
-            		</head>
+                    </head>
 
-            		<body>
+                    <body>
 
-            		    <div class="container">
+                        <div class="container">
 
-            		        <div class="header">
+                            <div class="header">
 
-            		            <h1>
-            		              Ammu QuantumCare Hospital
-            		            </h1>
+                                <h1>
+                                  Ammu QuantumCare Hospital
+                                </h1>
 
-            		        </div>
+                            </div>
 
-            		        <div class="content">
+                            <div class="content">
 
-            		            <h2 style="color: #22d3ee;">
-            		                Dear Patient,
-            		            </h2>
+                                <h2 style="color: #22d3ee;">
+                                    Dear Patient,
+                                </h2>
 
-            		            <p class="message">
+                                <p class="message">
 
-            		                Your AI-powered MRI analysis has been completed successfully.
+                                    Your AI-powered MRI analysis has been completed successfully.
 
-            		                Please find the attached clinical report PDF for detailed
-            		                lesion analysis and diagnostic insights.
+                                    Click the button below to download your MRI report.
 
-            		            </p>
+                                </p>
 
-            		            <div class="card">
+                                <div class="card">
 
-            		                <div class="label">
-            		                    Patient ID
-            		                </div>
+                                    <div class="label">
+                                        Patient ID
+                                    </div>
 
-            		                <div class="value">
-            		                    """ + patientId + """
-            		                </div>
+                                    <div class="value">
+                                        """ + patientId + """
+                                    </div>
 
-            		            </div>
+                                </div>
 
-            		            <p class="message">
+                                <p class="message">
 
-            		                The report includes:
+                                    The report includes:
 
-            		                <br><br>
+                                    <br><br>
 
-            		                • Lesion detection analysis
-            		                <br>
-            		                • Disease severity estimation
-            		                <br>
-            		                • Brain region identification
-            		                <br>
-            		                • Statistical lesion measurements
-            		                <br>
-            		                • MRI overlay visualization
+                                    • Lesion detection analysis
+                                    <br>
+                                    • Disease severity estimation
+                                    <br>
+                                    • Brain region identification
+                                    <br>
+                                    • Statistical lesion measurements
+                                    <br>
+                                    • MRI overlay visualization
 
-            		            </p>
+                                </p>
 
-            		            <p class="message">
+                                <a href="%s"
+                                   class="button">
+                                   Download MRI Report
+                                </a>
 
-            		                Please consult your neurologist or radiologist for further
-            		                medical evaluation and treatment planning.
+                            </div>
 
-            		            </p>
+                            <div class="footer">
 
-            		                <a href="%s"
-									   class="button">
-									   Download MRI Report
-									</a>
+                                Powered by
+                                <span class="highlight">
+                                    Turing Body AI
+                                </span>
 
-            		        </div>
+                                <br><br>
 
-            		        <div class="footer">
+                                AI-Powered Multiple Sclerosis Detection System
 
-            		            Powered by
-            		            <span class="highlight">
-            		                Turing Body AI
-            		            </span>
+                            </div>
 
-            		            <br><br>
+                        </div>
 
-            		            AI-Powered Multiple Sclerosis Detection System
+                    </body>
 
-            		        </div>
+                    </html>
 
-            		    </div>
+                    """.formatted(reportPath);
 
-            		</body>
-
-            		</html>
-
-            		""".formatted(reportPath);
-
-            		helper.setText(htmlContent, true);
-           
+            helper.setText(htmlContent, true);
 
             mailSender.send(message);
 
         } catch (Exception e) {
+
+            e.printStackTrace();
 
             throw new RuntimeException(
                     "Email Sending Failed"
