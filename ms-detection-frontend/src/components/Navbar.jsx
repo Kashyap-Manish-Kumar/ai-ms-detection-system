@@ -1,13 +1,10 @@
 // Navbar.jsx
 
 import { useState, useEffect } from "react";
-
-
-import { sendReport } from "../services/emailService";
+import emailjs from "@emailjs/browser";
 
 import { useLocation } from "react-router-dom";
 
-import { sendReportEmail } from "../services/emailService";
 
 import DoctorProfileDrawer from "./doctor/DoctorProfileDrawer";
 
@@ -32,28 +29,35 @@ const analysis = JSON.parse(
 );
  const userId =
   localStorage.getItem("userId");
-  const handleSendReport = async () => {
+ const handleSendReport = async () => {
 
   try {
 
-   await sendReportEmail(
-  patient.email,
-  patient.id,
-  analysis.reportPdf
-);
+    await emailjs.send(
+      "service_urep6my",
+      "template_k56x1lb",
+      {
+        patient_email: analysis?.patientEmail,
+        patient_name: analysis?.patientName,
+        report_link:
+          `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+
+        prediction: analysis?.prediction,
+
+        severity: analysis?.diseaseSeverity,
+      },
+      "BRQ_clHIMSCqSPU0T"
+    );
 
     alert("Report Sent Successfully");
 
   } catch (error) {
 
-    console.error(error);
+    console.log(error);
 
     alert("Failed To Send Report");
-
   }
-
 };
-
 
 
 
