@@ -33,27 +33,47 @@ const analysis = JSON.parse(
 
   try {
 
+    // FETCH PATIENT DETAILS
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/patients/${analysis?.patientId}`
+    );
 
-    
+    const patient = await response.json();
 
+    // PATIENT EMAIL FROM DATABASE
+    const patientEmail = patient?.email;
+
+    if (!patientEmail) {
+
+      alert("Patient Email Not Found");
+
+      return;
+    }
+
+    // SEND EMAIL
     await emailjs.send(
-  "service_urep6my",
-  "template_k56x1lb",
-  {
-   to_email: "mk2151431@gmail.com",
 
-    patient_name: analysis?.patientId || "Patient",
+      "service_urep6my",
 
-    report_link:
-      `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+      "template_k56x1lb",
 
-    prediction: analysis?.prediction || "N/A",
+      {
+        to_email: patientEmail,
 
-    severity: analysis?.diseaseSeverity || "N/A",
-  },
+        patient_name: patient?.name || "Patient",
 
-  "BRQ_cIHlMSCqSPU0T"
-);
+        report_link:
+          `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+
+        prediction:
+          analysis?.prediction || "N/A",
+
+        severity:
+          analysis?.diseaseSeverity || "N/A",
+      },
+
+      "BRQ_clHIMSCqSPU0T"
+    );
 
     alert("Report Sent Successfully");
 
