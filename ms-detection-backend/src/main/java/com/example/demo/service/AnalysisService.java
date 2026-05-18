@@ -24,33 +24,8 @@ public class AnalysisService {
 
     private final PatientRepository patientRepository;
     
-    private final EmailService emailService;
-
     
-    
-    
-    public void sendReport(String analysisId) {
-
-        Analysis analysis =
-                analysisRepository.findById(analysisId)
-                .orElseThrow();
-
-        Patient patient =
-                patientRepository.findById(
-                        analysis.getPatientId()
-                ).orElseThrow();
-
-        String reportUrl =
-                "https://manditake-om-turing-body-ml-api.hf.space"
-                + analysis.getReportPdf();
-
-        emailService.sendReport(
-                patient.getEmail(),
-                patient.getId(),
-                reportUrl
-        );
-    }
-    
+  
     public List<Analysis> getAllAnalysis() {
 
         return analysisRepository.findAll();
