@@ -7,6 +7,8 @@ import { sendReport } from "../services/emailService";
 
 import { useLocation } from "react-router-dom";
 
+import { sendReportEmail } from "../services/emailService";
+
 import DoctorProfileDrawer from "./doctor/DoctorProfileDrawer";
 
 import {
@@ -34,7 +36,11 @@ const analysis = JSON.parse(
 
   try {
 
-    await sendReport(analysis?.id);
+   await sendReportEmail(
+  patient.email,
+  patient.id,
+  analysis.reportPdf
+);
 
     alert("Report Sent Successfully");
 
