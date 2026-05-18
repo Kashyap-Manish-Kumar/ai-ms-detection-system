@@ -16,7 +16,8 @@ export const sendReportEmail = async (
         patient_id: patientId,
         report_url: reportUrl,
       },
-      "BRQ_clHIMSCqSPU0T"
+      "BRQ_cIHlMSCqSPU0T"
+      
     );
 
     console.log("EMAIL SENT:", response);
