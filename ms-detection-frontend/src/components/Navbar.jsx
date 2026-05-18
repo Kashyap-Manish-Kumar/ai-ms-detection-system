@@ -33,21 +33,27 @@ const analysis = JSON.parse(
 
   try {
 
+
+    
+
     await emailjs.send(
-      "service_urep6my",
-      "template_k56x1lb",
-      {
-        patient_email: analysis?.patientEmail,
-        patient_name: analysis?.patientName,
-        report_link:
-          `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+  "service_urep6my",
+  "template_k56x1lb",
+  {
+    patient_email: "2403031469002@paruluniversity.ac.in",
 
-        prediction: analysis?.prediction,
+    patient_name: analysis?.patientId || "Patient",
 
-        severity: analysis?.diseaseSeverity,
-      },
-      "BRQ_clHIMSCqSPU0T"
-    );
+    report_link:
+      `${import.meta.env.VITE_ML_URL}${analysis?.reportPdf}`,
+
+    prediction: analysis?.prediction || "N/A",
+
+    severity: analysis?.diseaseSeverity || "N/A",
+  },
+
+  "BRQ_clHIMSCqSPU0T"
+);
 
     alert("Report Sent Successfully");
 

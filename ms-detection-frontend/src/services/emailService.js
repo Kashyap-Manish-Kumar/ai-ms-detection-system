@@ -2,8 +2,10 @@ import emailjs from "@emailjs/browser";
 
 export const sendReportEmail = async (
   patientEmail,
-  patientId,
-  reportUrl
+  patientName,
+  reportUrl,
+  prediction,
+  severity
 ) => {
 
   try {
@@ -12,12 +14,18 @@ export const sendReportEmail = async (
       "service_urep6my",
       "template_k56x1lb",
       {
-        to_email: patientEmail,
-        patient_id: patientId,
-        report_url: reportUrl,
+        patient_email: patientEmail,
+
+        patient_name: patientName,
+
+        report_link: reportUrl,
+
+        prediction: prediction,
+
+        severity: severity,
       },
-      "BRQ_cIHlMSCqSPU0T"
-      
+
+      "BRQ_clHIMSCqSPU0T"
     );
 
     console.log("EMAIL SENT:", response);
