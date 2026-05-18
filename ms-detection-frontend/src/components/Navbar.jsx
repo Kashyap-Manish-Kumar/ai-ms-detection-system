@@ -72,7 +72,7 @@ const analysis = JSON.parse(
           analysis?.diseaseSeverity || "N/A",
       },
 
-      "BRQ_clHIMSCqSPU0T"
+      "BRQ_cIHlMSCqSPU0T"
     );
 
     alert("Report Sent Successfully");

@@ -25,7 +25,7 @@ export const sendReportEmail = async (
         severity: severity,
       },
 
-      "BRQ_clHIMSCqSPU0T"
+      "BRQ_cIHlMSCqSPU0T"
     );
 
     console.log("EMAIL SENT:", response);
