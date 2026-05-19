@@ -16,6 +16,10 @@ function DashboardLayout({
         flex h-screen
         bg-gray-100
         overflow-hidden
+        shadow-[0_0_60px_rgba(34,211,238,0.15)]
+       
+backdrop-blur-2xl
+border border-cyan-400/20
       "
     >
 
