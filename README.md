@@ -406,7 +406,7 @@ docker run -p 8080:8080 turing-body
 
 # 👨‍💻 Author
 
-## Surya Prakash
+## Manish Kashyap
 
 AI & Full Stack Developer
 
